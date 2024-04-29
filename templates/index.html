@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='styless.css') }}">
+    <title>Compare Sheets</title>
+</head>
+
+<body>
+    <div class="outerbox">
+        <header>
+            <div class="headertitle flex">
+                <h1>Automated Attendance Mapping</h1>
+            </div>
+        </header>
+        <form id="uploadForm" action="/compare_sheets" method="post" enctype="multipart/form-data" target="_blank">
+            <div class="div0 flex">
+                <div class="div1">
+                    <label for="enroll_sheet">Upload Enrollment Sheet:</label>
+                    <input type="file" id="enroll_sheet" name="enroll_sheet" accept=".xlsx, .xls" hidden>
+                </div>
+
+                <div class="div2">
+                    <label for="attendance_sheet">Upload Attendance Sheet:</label>
+                    <input type="file" id="attendance_sheet" name="attendance_sheet" accept=".xlsx, .xls" hidden>
+                </div>
+            </div>
+            <div class="div3 flex">
+                <input type="submit" value="Compare Sheets">
+            </div>
+        </form>
+    </div>
+
+    <div id="downloadLink" style="display:none;">
+        <h2>Comparison completed</h2>
+        <p>Output file created: <a id="downloadBtn" href="#" target="_blank">Download</a></p>
+    </div>
+
+    <script>
+        // Function to show download link after successful form submission
+        document.getElementById('uploadForm').addEventListener('submit', function (event) {
+            event.preventDefault();
+            var form = event.target;
+            var formData = new FormData(form);
+
+            fetch(form.action, {
+                method: 'POST',
+                body: formData
+            })
+                .then(response => response.json())
+                .then(data => {
+                    if (data.success) {
+                        // Hide the form
+                        form.style.display = 'none';
+                        // Show the download link
+                        document.getElementById('downloadLink').style.display = 'block';
+                        // Set the download link URL
+                        document.getElementById('downloadBtn').href = data.download_link;
+                    } else {
+                        alert(data.message); // Show error message if any
+                    }
+                })
+                .catch(error => console.error('Error:', error));
+        });
+    </script>
+</body>
+
+</html>

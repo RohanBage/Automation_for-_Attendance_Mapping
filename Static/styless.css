@@ -1,0 +1,112 @@
+css * {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  /* background: linear-gradient(to top left, #2fbdff, #ff7582) ; */
+}
+
+h1 {
+  font-size: 3rem;
+}
+
+.outerbox {
+  background: linear-gradient(to top left, #2fbdff, #ff7582) ;
+  height: 100vh;
+}
+
+.flex {
+  display: flex;
+  justify-content: center;
+}
+
+.headertitle {
+  height: 15vh;
+  color: white;
+  padding: 30px;
+  margin-bottom: 15px;
+}
+
+.headertitle h1 {
+  margin: auto 0;
+}
+
+.div0 {
+  height: 50vh;
+  width: 50vw;
+  display: flex;
+  margin-inline: auto;
+  text-align: center;
+}
+
+.div1 {
+  height: 50vh;
+  width: 25vw;
+  border: 5px dashed rgba(255, 255, 255, 0.304);
+  margin-right: 5px ;
+  background: #ffffff38;
+
+}
+
+.div2 {
+  height: 50vh;
+  width: 25vw;
+  border: 5px dashed rgba(255, 255, 255, 0.304);
+  margin-left: 5px ;
+  background: #ffffff38;
+}
+
+.div3 {
+  margin-top: 10px;
+  /* background: #ffffff38; */
+}
+
+.div3 label {
+ color:#ffffff38 ;
+}
+
+label {
+  color: rgb(244, 242, 242);
+  display: inline-block;
+  padding: 30px;
+  font-size: x-large;
+}
+
+input {
+  display: inline-block;
+  padding: 30px;
+}
+
+.div3 input[type="submit"] {
+  background-color: #ffffff83; /* Set background color to transparent */
+  border: 2px solid transparent; /* Set border to transparent */
+  color: rgb(13, 13, 13); /* Text color */
+  padding: 15px 30px; /* Adjust padding as needed */
+  font-size: large;
+  cursor: pointer; /* Change cursor on hover */
+}
+
+#downloadLink{
+  padding: 20px;
+  position:absolute;
+  top: 200px;
+  left: 600px;
+}
+
+#downloadLink h2{
+  color: #333;
+  margin-bottom: 20px;
+}
+
+#downloadBtn{
+  padding: 10px 20px;
+  font-size: 18px;
+  border: none;
+  background-color: #4caf50;
+  color: #fff;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+#download-btn:hover {
+  background-color: #45a049;
+}
